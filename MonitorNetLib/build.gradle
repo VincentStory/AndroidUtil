@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: rootProject.projectDir.absolutePath + "/app.gradle"
+//迁移到jitpack
+//apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+    compileSdkVersion project.ext.androidCompileSdkVersion
+    buildToolsVersion project.ext.androidBuildToolsVersion
+    defaultConfig {
+        minSdkVersion project.ext.androidMinSdkVersion
+        targetSdkVersion project.ext.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project.ext.AppDependencies['appcompat']
+    implementation project.ext.AppDependencies['annotation']
+    implementation project.ext.AppDependencies['media']
+    implementation project.ext.AppDependencies['recyclerview']
+    implementation project.ext.AppDependencies['material']
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+}

@@ -5,6 +5,7 @@ import android.app.Application;
 import com.vincent.monitorcrashlib.crash.CrashHandler;
 import com.vincent.monitorcrashlib.crash.CrashListener;
 import com.vincent.monitorcrashlib.util.CrashToolUtils;
+import com.yc.netlib.utils.NetworkTool;
 
 /**
  * @author : wangwenbo
@@ -18,7 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         initCrash();
-//        NetworkTool.getInstance().init(this);
+        NetworkTool.getInstance().init(this);
 
         //建议只在debug环境下显示，点击去网络拦截列表页面查看网络请求数据
 //        NetworkTool.getInstance().setFloat(this);

@@ -37,6 +37,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'androidx.annotation:annotation:1.1.0'
 
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
     implementation project(path: ':MonitorCrashLib')
+    implementation project(path: ':MonitorNetLib')
 
 }
